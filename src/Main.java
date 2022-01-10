@@ -5,6 +5,8 @@ import classes.Bad;
 import classes.Nice;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -86,9 +88,26 @@ public class Main {
             System.out.println("This film was released after " + year);
 
         System.out.println("Sorted actors by last name");
-        //film_1.sortMyList();
+        film_2.sortMyList();
+        ArrayList<Object> duet = film_2.calculProfit();
+        System.out.println("Profit : " + duet.get(1) + " value of " + duet.get(0));
+
+        HashMap<String, Film> films = new HashMap<String, Film>();
+
+        films.put(film_1.getDate(), film_1);
+        films.put(film_2.getDate(), film_2);
+
+        makeBackUp(films);
+    }
+
+    public static void makeBackUp(HashMap<String, Film> films) {
+        for (Map.Entry<String, Film> entry : films.entrySet()) {
+            String key = entry.getKey();
+            Film film = entry.getValue();
 
 
+            System.out.println(key + " - " + film.getTitle() + " - " + film.calculProfit().get(0));
+        }
     }
 
 }

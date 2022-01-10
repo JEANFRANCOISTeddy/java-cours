@@ -1,6 +1,9 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Film {
 
@@ -17,6 +20,7 @@ public class Film {
         this.episode = episode;
         this.budget = budget;
         this.receipts = receipts;
+        this.actors = new ArrayList<Actor>();
     }
 
     public String getTitle() {
@@ -74,20 +78,30 @@ public class Film {
         return nb_characters;
     }
 
-    public void calculProfit() {
+    public ArrayList<Object> calculProfit() {
         float profit = this.receipts - this.budget;
         boolean isProfitable = false;
         if(profit > 0)
             isProfitable = true;
 
+        ArrayList<Object> duet = new ArrayList<Object>();
+        duet.add(profit);
+        duet.add(isProfitable);
+
+        return duet;
     }
 
-    public void calculDeficit() {
+    public ArrayList<Object> calculDeficit() {
         float profit = this.receipts - this.budget;
         boolean isDeficit = false;
         if(profit < 0)
             isDeficit = true;
 
+        ArrayList<Object> duet = new ArrayList<Object>();
+        duet.add(profit);
+        duet.add(isDeficit);
+
+        return duet;
     }
 
     public Boolean isBefore(String year) {
@@ -98,16 +112,14 @@ public class Film {
     }
 
     public void sortMyList() {
-        System.out.println(this.nbActors());
-
-        /*ArrayList<String> last_name_list = new ArrayList<String>();
+        ArrayList<String> last_name_list = new ArrayList<String>();
         for (int count = 0; count < this.nbActors(); count++) {
             last_name_list.add(actors.get(count).getLast_name());
         }
 
         Collections.sort(last_name_list);
 
-        System.out.println(last_name_list);*/
+        System.out.println(last_name_list);
     }
 
     public String toString() {
