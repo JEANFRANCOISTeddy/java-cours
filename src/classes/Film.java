@@ -69,6 +69,12 @@ public class Film {
 
     public int nbActors() { return this.actors.size(); }
 
+    /**
+     *
+     * Méthode qui renvoie le nombre de personnages dans un film
+     *
+     * @return nb_characters
+     */
     public Integer nbCharacters() {
         int nb_characters = 0;
         for (int count = 0; count < this.nbActors(); count++) {
@@ -78,6 +84,12 @@ public class Film {
         return nb_characters;
     }
 
+    /**
+     *
+     * Méthode qui calcule le profit qu'à réalisé un film
+     *
+     * @return ArrayList<Object>
+     */
     public ArrayList<Object> calculProfit() {
         float profit = this.receipts - this.budget;
         boolean isProfitable = false;
@@ -91,6 +103,12 @@ public class Film {
         return duet;
     }
 
+    /**
+     *
+     * Méthode qui calcule le décificit qu'à réalisé un film
+     *
+     * @return ArrayList<Object>
+     */
     public ArrayList<Object> calculDeficit() {
         float profit = this.receipts - this.budget;
         boolean isDeficit = false;
@@ -104,6 +122,13 @@ public class Film {
         return duet;
     }
 
+    /**
+     *
+     * Méthode permettant de savoir si un film est sorti avant une certaine année ou pas
+     *
+     * @param year
+     * @return
+     */
     public Boolean isBefore(String year) {
         if(Integer.parseInt(year) > Integer.parseInt(this.date))
                 return true;
@@ -111,6 +136,9 @@ public class Film {
             return false;
     }
 
+    /**
+     * Méthode permettant de trier les acteurs par leur nom de famille et par ordre alphabétique
+     */
     public void sortMyList() {
         ArrayList<String> last_name_list = new ArrayList<String>();
         for (int count = 0; count < this.nbActors(); count++) {

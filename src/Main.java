@@ -100,6 +100,12 @@ public class Main {
         makeBackUp(films);
     }
 
+    /**
+     *
+     * Méthode qui affiche certains arguments relatifs à un film
+     *
+     * @param films
+     */
     public static void makeBackUp(HashMap<String, Film> films) {
         for (Map.Entry<String, Film> entry : films.entrySet()) {
             String key = entry.getKey();

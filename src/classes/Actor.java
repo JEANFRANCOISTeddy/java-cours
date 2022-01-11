@@ -37,6 +37,12 @@ public class Actor {
         this.duet = duet;
     }
 
+    /**
+     *
+     * Méthode qui renvoie le nombre de personnages jouer par un acteur
+     *
+     * @return nb de characters
+     */
     public Integer nbCharacters() {
         return this.duet.size();
     }
